@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>{% block title %}  Technologies Services {% endblock %}</title>
+        
+        {% block stylesheets %}
+            <link  href="{{ asset('bundles/app/css/semantic.min.css') }} " rel="stylesheet">
+            <link  href="{{ asset('bundles/app/css/style.css') }} " rel="stylesheet">
+            <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+            <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+            
+        {% endblock %}  
+        {% stylesheets '@FOSCommentBundle/Resources/public/css/comments.css' %}
+            <link rel="stylesheet" href="{{ asset_url }}" type="text/css" />
+        {% endstylesheets %}  
+    </head>
+
+    <body>
+        {% block header %}
+        <header>
+            <div class="d-header">
+               {% include 'AppBundle:Admin:header.html.twig' %}
+            </div>
+        </header>
+        {% endblock %} 
+
+        {#  <div>
+            {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }} |
+                <a href="{{ path('fos_user_security_logout') }}">
+                    {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                </a>
+            {% else %}
+                <a href="{{ path('fos_user_security_login') }}">{{ 'layout.login'|trans({}, 'FOSUserBundle') }}</a>
+            {% endif %}
+        </div> #}
+ 
+        {% for type, messages in app.session.flashBag.all %}
+            {% for message in messages %}
+                <div class="{{ type }}">
+                    {{ message|trans({}, 'FOSUserBundle') }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        
+        {% block fos_user_content %}
+        
+        
+        <section class="light-green-bg" style="padding:80px 0">
+            <div class="ui container posrel c-black" align="center">
+                <h1>We Are Just Getting Started!</h1>
+                <h3 class="margin-t0">Join Invanto and you join our family.</h3>
+                <div class="spacer-40"></div>
+                <div class="ui three column grid">
+                    <div class="column border-left user-board">
+                        <img src="image/users-icon.png" style="height:95px"><br>
+                        <h2>2.5k+</h2>
+                        <h4>Awesome Users</h4>
+                    </div>
+                    <div class="column user-board">
+                        <img src="image/email-icon.png" style="height:95px">
+                        <h2>40M+</h2>
+                        <h4>Emails Delivered</h4>
+                    </div>
+                </div>
+                <div class="spacer-40"></div>
+            </div>
+        </section>
+          {# {% include 'FOSCommentBundle:Thread:async.html.twig' with {'id': 'foo'} %}   #}
+        {% endblock fos_user_content %}
+
+        {% block footer %}<!--Footer-->
+            <footer class="l-footer">
+                {% include 'AppBundle:Admin:footer.html.twig' %}
+            </footer>
+        {% endblock %} 
+        
+        {% block javascript %}
+            <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.0/jquery.min.js"></script>
+            <script src="{{ asset('bundles/app/js/jquery-ui.js') }}"></script>
+            <script src="{{ asset('bundles/app/js/jquery-validate.min.js') }}"></script>           
+            <script src="{{ asset('bundles/app/js/semantic.min.js') }}"></script>
+            <script src="{{ asset('bundles/app/js/main.js') }}"></script>
+            
+        {% endblock %}
+        {% javascripts
+            '@FOSCommentBundle/Resources/public/js/comments.js'
+            
+            %}
+            <script src="{{ asset_url }}"></script>
+        {% endjavascripts %}
+
+    </body>
+</html>

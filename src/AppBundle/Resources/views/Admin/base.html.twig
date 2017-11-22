@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %} Tyon Technology {% endblock %}</title>
+    
+     {% block stylesheets %}
+            <link  href="{{ asset('bundles/app/css/semantic.min.css') }} " rel="stylesheet">
+            <link  href="{{ asset('bundles/app/css/style.css') }} " rel="stylesheet">
+            <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+            <link href="https://fonts.googleapis.com/css?family=Fjalla+One" rel="stylesheet">
+            
+        {% endblock %}    
+   
+    
+</head>
+
+<body>
+    {% block header %}
+    <header>
+        <div class="d-header">
+           {% include 'AppBundle:Admin:header.html.twig' %}
+        </div>
+    </header>
+    {% endblock %} 
+
+        <!--header Ends Here-->
+        
+    {% block content %}
+       <section class="light-green-bg" style="padding:80px 0">
+            <div class="ui container posrel c-black" align="center">
+                <h1>We Are Just Getting Started!</h1>
+                <h3 class="margin-t0">Join Invanto and you join our family.</h3>
+                <div class="spacer-40"></div>
+                <div class="ui three column grid">
+                    <div class="column border-left user-board">
+                        <img src="image/users-icon.png" style="height:95px"><br>
+                        <h2>2.5k+</h2>
+                        <h4>Awesome Users</h4>
+                    </div>
+                    <div class="column user-board">
+                        <img src="image/email-icon.png" style="height:95px">
+                        <h2>40M+</h2>
+                        <h4>Emails Delivered</h4>
+                    </div>
+                </div>
+                <div class="spacer-40"></div>
+            </div>
+        </section>
+    {% endblock %}
+        {% block footer %}<!--Footer-->
+        <footer class="l-footer">
+            {% include 'AppBundle:Admin:footer.html.twig' %}
+        </footer>
+
+    {% endblock %} 
+
+    <script src="{{ asset('bundles/app/js/semantic.min.js') }}"></script>
+  </body>
+
+</html>

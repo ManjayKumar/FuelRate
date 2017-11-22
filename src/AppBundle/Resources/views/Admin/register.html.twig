@@ -1,0 +1,38 @@
+{% extends 'AppBundle:Admin:base.html.twig' %} 
+{% block content %}
+
+ <div class="main-wrap-page">
+    <div class="overlay-bg"></div>
+    <div class="ui container">
+        <div class="ui grid margin0">
+            
+            <div class="sixteen wide mobile sixteen wide tablet eight wide computer column" align="right">
+                <div id="login-div" style="display:block">
+
+                    <form action="{{ path('user_registration') }}" method="POST">
+                        <div class="login-form">
+                            <h2 class="text-banner">Sign-Up here</h2>
+                            <h4 class="text-banner">Build membership sites, online courses, or provide services to millions of people across the world.</h4>
+                            <div class="spacer"></div>
+                            <div class="spacer"></div>
+                            <div class="ui form">
+                            
+                            {{ form_start(form) }}
+							    {{ form_row(form.username) }}
+                                <br>
+							    {{ form_row(form.password) }}
+				    
+				 				<div class="spacer"></div>
+                                <button class="ui button uppercase big green" type="submit">Sign-Up </button>
+                                <br>
+							{{ form_end(form) }}
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

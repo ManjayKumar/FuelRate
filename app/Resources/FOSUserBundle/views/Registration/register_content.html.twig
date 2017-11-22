@@ -1,0 +1,29 @@
+<div class="main-wrap-page">
+    <div class="overlay-bg"></div>
+    <div class="ui container">
+        <div class="ui grid margin0">
+            
+            <div class="sixteen wide mobile sixteen wide tablet eight wide computer column" align="right">
+                <div id="login-div" style="display:block">
+
+                    <form action="{{ path('fos_user_registration_register') }}" {{ form_enctype(form) }} method="POST">
+                        <div class="login-form">
+                            <h2 class="text-banner">Sign-Up here</h2>
+                            <div class="spacer"></div>
+                            <div class="spacer"></div>
+                            <div class="ui form">
+                            	{{ form_widget(form) }}
+
+				 				<div class="spacer"></div>
+                                <button class="ui button uppercase big green" type="submit" value="{{ 'registration.submit'|trans({}, 'FOSUserBundle') }}">Sign-Up </button>
+                                <br>
+							
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>

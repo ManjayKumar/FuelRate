@@ -1,0 +1,74 @@
+<div class="ui container">
+    <div class="ui grid margin0">
+        <div class="sixteen wide column">
+            <div class="logo">
+                <a href="{{ path('home-page') }}"><img src="{{ asset('man.jpg') }}" width="100%"></a>
+            </div>
+            <div class="mb-m-clk">
+                <i class="fa fa-bars" aria-hidden="true"></i>
+            </div>
+            <div class="ui secondary menu desk-m-nav">
+                <a href="{{ path('home-page') }}" class="active item">
+                Home
+            </a>
+                <a href="#" class="item app-store">
+                Forums
+            </a>
+                <div class="ui dropdown item" tabindex="0"> Products
+                    <i class="dropdown icon"></i>
+                    <div class="menu margin-t16 transition hidden" tabindex="-1">
+                        <a class="item" href="#">DoctiaRate</a>
+                        <a class="item" href="#">FuelCane</a>
+                        <a class="item" href="#">FestSamay</a>
+                    </div>
+                </div>
+                <a href="#" class="item academy-tab">
+                About Us
+                </a>
+                <a href="#" class="item">
+                Careers
+                </a>
+                <a href="#" class="item">
+                Contact Us
+                </a>
+                <div class="right menu">
+
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                    {{ 'layout.logged_in_as'|trans({'%username%': app.user.username}, 'FOSUserBundle') }}
+                    <div class="ui dropdown">
+                      
+                      <i class="dropdown icon"></i>
+                      <div class="menu">
+                      <div class="item">New</div>
+                        <div class="item">
+                      
+                          <a href="{{ path('fos_user_security_logout') }}">
+                            {{ 'layout.logout'|trans({}, 'FOSUserBundle') }}
+                          </a>
+                        </div>
+                      </div>
+                    </div>
+                    
+                    {% else %}
+                    <a href="{{ path('fos_user_security_login') }}" class="item">
+                    Login
+                    </a>
+                    
+                    {% endif %}
+                    <a class="item" href="{{ path('fos_user_registration_register') }}">
+                        <button type="button" class="ui button blue inverted mini">Sign Up</button>
+                    </a>
+                </div>
+            </div>
+            <div class="mb-left-side-menu">
+                <div class="logo">
+                    <a href="/home">
+                        <img src="{{ asset('man.jpg') }}" width="100%">
+                    </a>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="overlay-right"></div>
+        </div>
+    </div>
+</div>

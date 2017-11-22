@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Tblnotification" table="tblnotification">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="facultyid" type="integer" column="facultyid" nullable="false"/>
+    <field name="notification" type="text" column="notification" length="65535" nullable="false"/>
+    <field name="datetimenotif" type="datetime" column="datetimenotif" nullable="false"/>
+    <field name="status" type="integer" column="status" nullable="false"/>
+  </entity>
+</doctrine-mapping>

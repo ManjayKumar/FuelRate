@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+  <entity name="AppBundle\Entity\Tblteacherfile" table="tblteacherfile">
+    <id name="id" type="integer" column="id">
+      <generator strategy="IDENTITY"/>
+    </id>
+    <field name="filename" type="text" column="filename" length="65535" nullable="false"/>
+    <field name="facultyid" type="integer" column="facultyid" nullable="false"/>
+    <field name="dateuploaded" type="date" column="dateuploaded" nullable="false"/>
+  </entity>
+</doctrine-mapping>

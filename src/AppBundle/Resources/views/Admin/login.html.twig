@@ -1,0 +1,45 @@
+{% extends 'AppBundle:Admin:base.html.twig' %} 
+{% block content %}
+
+ <div class="main-wrap-page">
+    <div class="overlay-bg"></div>
+    <div class="ui container">
+        <div class="ui grid margin0">
+            
+            <div class="sixteen wide mobile sixteen wide tablet eight wide computer column" align="right">
+                <div id="login-div" style="display:block">
+                    
+
+                    <form action="{{ path('login_form') }}" method="POST">
+                        <div class="login-form">
+                            <h2 class="text-banner">Login here</h2>
+                            <h4 class="text-banner">Build membership sites, online courses, or provide services to millions of people across the world.</h4>
+                            <div class="spacer"></div>
+                            <div class="spacer"></div>
+                            <div class="ui form">
+                            
+                                <label for="username">Username:</label>
+                                <input type="text" id="username" name="username" placeholder="Username" />
+
+                                <label for="password">Password:</label>
+                                <input type="password" id="password" name="password" placeholder="Password" />
+				            
+				 				<div class="spacer"></div>
+                                
+                                <button class="ui button uppercase big green" type="submit">Login </button>
+                                <br>
+							
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                {% if name is defined%}
+                    <div class="alert-info fade in">
+                        <strong>{{name}}</strong>
+                    </div>
+                {%endif%}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
